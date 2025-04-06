@@ -1,10 +1,17 @@
 {
-  "tr": {
-    "menu": [
-
-    ]  
+  "menu": {
+    "scan_message": "Lütfen Bir Seçim Yapnız:",
+    "scan_mode": "Ava Çık",
+    "domain_path": "Lütfen Domain Dosya Yolunu Giriniz:",
+    "output_format": "Lütfen Çıktı Formatını Seçiniz:",
+    "exit_scan": "Çıkış"
   },
-  "en": {
-
+  "scan_mode": {
+    "scan_mode_started": "SpeedyPeek Başlatıldı ☠️",
+    "scan_started": "Tarama şunun için başlatıldı: ",
+    "scan_completed": "Tarama şunun için bitti: ",
+    "scan_failed": "Tarama başarısız oldu (şuradan bilgi loguna bakın {{info_log}})",
+    "error_occured": "An error occurred during scanning (şuradan hata loguna bakın {{error_log}})",
+    "scan_mode_over": "Tarama tamamlandı{{format}}"
   }
 }

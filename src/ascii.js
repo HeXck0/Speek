@@ -22,7 +22,8 @@ const showLogo = () => {
     .map(line => line.padStart(Math.floor((width + line.length) / 2)))
     .join('\n');
 
-  return paddedLogo + '\n';
+  return console.log(paddedLogo + '\n');
+
 }
 
-export default showLogo();
+export default showLogo;

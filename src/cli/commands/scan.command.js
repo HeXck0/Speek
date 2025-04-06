@@ -1,16 +1,18 @@
 //import { goScan } from '';
-import ascii from '../../ascii.js';
+import showLogo from '../../ascii.js';
+
+import { loadDomainList } from '../../services/goScan/checkDomainFile.js';
 import { config } from '../../config/config.js';
 
 export const goScanCommand = (program) => {
   program
     .command('go')
     .description('Get the data any domain or domain list')
-    .option('-f, --file <path>', 'domain list path', config.defaultFile)
+    .requiredOption('-f, --file <path>', 'domain list path')
     .option('-t, --type <format>', 'export format: csv/json', config.defaultFormat)
     .action(async (opts) => {
-      console.log(ascii);
-      console.log('first running', opts);
-      //await goScan(opts);
+      showLogo(); 
+      const { file, type } = opts;
+      await loadDomainList(file ,type); 
     });
 }

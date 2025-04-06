@@ -11,13 +11,14 @@
   },
   "keywords": [],
   "author": "HeXck0",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
     "inquirer": "^12.5.0",
+    "tldts": "^6.1.85",
     "winston": "^3.17.0"
   }
 }

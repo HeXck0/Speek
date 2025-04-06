@@ -1,0 +1,17 @@
+{
+  "menu": {
+    "scan_message": "Please Select A Choices:",
+    "scan_mode": "Go Hunt",
+    "domain_path": "Please Input The Domain File Path:",
+    "output_format": "Please Select The Output Format:",
+    "exit_scan": "Exit"
+  },
+  "scan_mode": {
+    "scan_mode_started": "SpeedyPeek is started ☠️",
+    "scan_started": "Scan started for: ",
+    "scan_completed": "Scan completed for: ",
+    "scan_failed": "Scan failed (see info log record in {{info_log}})",
+    "error_occured": "An error occurred during scanning (see error log record in {{error_log}})",
+    "scan_mode_over": "Scan is over {{format}}"
+  }
+}
