@@ -1,8 +1,8 @@
-//import { goScan } from '';
-import showLogo from '../../ascii.js';
+import { config } from '#src/config/index.js';
+import goScan from '#src/core/go-scan/index.js'
 
-import { loadDomainList } from '../../services/goScan/checkDomainFile.js';
-import { config } from '../../config/config.js';
+import showLogo from '#src/utils/ascii.js';
+
 
 export const goScanCommand = (program) => {
   program
@@ -13,6 +13,6 @@ export const goScanCommand = (program) => {
     .action(async (opts) => {
       showLogo(); 
       const { file, type } = opts;
-      await loadDomainList(file ,type); 
+      await goScan();
     });
 }

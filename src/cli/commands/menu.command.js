@@ -1,5 +1,6 @@
 import { showRootMenu } from '../menuHandler.js';
-import showLogo from '../../ascii.js';
+
+import showLogo from '#src/utils/ascii.js';
 
 export const menuCommand = (program) => {
   program

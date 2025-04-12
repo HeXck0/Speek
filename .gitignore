@@ -1,0 +1,12 @@
+
+# Node Packages
+node_modules/
+
+# Environment 
+.env
+
+# Log Files
+logs/
+
+# Data Output Files
+outputs/

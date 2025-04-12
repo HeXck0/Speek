@@ -1,9 +1,7 @@
-import { t } from '../utils/i18n.js';
+import { t } from '#src/utils/i18n.js';
 import inquirer from 'inquirer';
 
-
-import { config } from '../config/config.js';
-import { loadDomainList } from '../services/goScan/checkDomainFile.js';
+import { config } from '#src/config/index.js';
 
 export async function showRootMenu() {
   const { action } = await inquirer.prompt([
@@ -35,7 +33,6 @@ export async function showRootMenu() {
         }
       ]);
       const { file, type } = actionScan;
-      await loadDomainList(file, type); 
       break;
     case 'exit':
       process.exit(0);

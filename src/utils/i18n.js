@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import { config } from '../config/config.js';
+import { config } from '#src/config/index.js';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const appLang =  config.defaultLang || 'en';
+const appLang =  config.defaultLang;
 let appTranslations = {};
 
 export const loadLanguage = (appLang) => { 
@@ -29,7 +29,7 @@ export const t = (key, vars= {}) => {
   for (const [k, v] of Object.entries(vars)) {
     text = text.replace(`{{${k}}}`, v);
   }
-  return text
+  return text;
 }
 
-loadLanguage(appLang)
+loadLanguage(appLang);
