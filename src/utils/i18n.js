@@ -22,7 +22,7 @@ export const loadLanguage = (appLang) => {
 }
 
 
-export const t = (key, vars= {}) => {
+export const t = (key, vars = {}) => {
   const keys = key.split(".");
   let text = keys.reduce((obj, k) => obj?.[k], appTranslations) || key;
 

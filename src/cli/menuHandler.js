@@ -2,6 +2,7 @@ import { t } from '#src/utils/i18n.js';
 import inquirer from 'inquirer';
 
 import { config } from '#src/config/index.js';
+import goScan from '#src/core/go-scan/index.js'
 
 export async function showRootMenu() {
   const { action } = await inquirer.prompt([
@@ -33,6 +34,7 @@ export async function showRootMenu() {
         }
       ]);
       const { file, type } = actionScan;
+      await goScan(file, type);
       break;
     case 'exit':
       process.exit(0);

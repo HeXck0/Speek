@@ -13,6 +13,6 @@ export const goScanCommand = (program) => {
     .action(async (opts) => {
       showLogo(); 
       const { file, type } = opts;
-      await goScan();
+      await goScan(file, type);
     });
 }

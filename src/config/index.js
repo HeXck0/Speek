@@ -1,9 +1,15 @@
 // get .env
 
 import dotenv from 'dotenv';
-dotenv.config();
+import {dirname , path} from '#src/utils/get-dirname.js'
 
-const defaultFilterRegex = /\b(?:https?:\/\/)?(?:www\.)?([\w-]+\.)+[\w]{2,}(\/[^\s]*)?\b/g;
+const envPath = path.resolve(dirname, '../../.env');
+
+dotenv.config({ path: envPath });
+
+
+const defaultFilterRegex = /\b(?:https?:\/\/)?(?:www\.)?((?:[\w-]+\.)+[a-z]{2,})(?:\/[^\s"']*)?/gi
+;
 
 // export config
 export const config = {
@@ -12,7 +18,12 @@ export const config = {
   defaultLogPath: process.env.DEFAULT_LOG_PATH || 'logs/',
   defaultLogCount: process.env.DEFAULT_LOG_COUNT || 100,
   //Defauttimeout: parseInt(process.env.SCRAPER_TIMEOUT || 6000),
-  defaultFilterRegex: process.DEFAULT_FILTER_REGEX || defaultFilterRegex, 
+  defaultFilterRegex: process.env.DEFAULT_FILTER_REGEX || defaultFilterRegex, 
   defaultFormat: process.env.EXPORT_FORMAT || 'json',
-  defaultWeb: process.env.WEB_TYPE || 'https'
+  defaultWeb: process.env.WEB_TYPE || 'https',
+  defaultDnsServers: (process.env.DNS_SERVERS || '1.1.1.1,8.8.8.8').split(','),
+  defaultDnsLimit: (() => {
+    const val = Number(process.env.DNS_LIMIT);
+    return (!isNaN(val) && val > 0) ? val : 10;
+  })()
 };

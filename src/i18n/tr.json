@@ -13,5 +13,18 @@
     "scan_failed": "Tarama başarısız oldu (şuradan bilgi loguna bakın {{info_log}})",
     "error_occured": "An error occurred during scanning (şuradan hata loguna bakın {{error_log}})",
     "scan_mode_over": "Tarama tamamlandı{{format}}"
+  },
+  "domain": {
+    "domain_not_found": "{{file_path}}\nYolu bulunamadı.",
+    "invalid_domain_name": "{{domain_name}} Geçersiz domain adı (MXDOMAIN)",
+    "valid_but_no_a": "{{domain_name}} Geçerli domain ama A kaydı yok. (IPv4)",
+    "cname_not_resolved": "{{domain_name}} CNAME zinciri çözümlenemedi veya IP adresi bulunamadı.",
+    "ip_resolved": "{{domain_name}} IP başarıyla çözümlendi.",
+    "dns_timeout": "DNS sorgusu zaman aşımına uğradı.",
+    "unexcepted_dns_error": "DNS çözümlenmesinde beklenmeyen hata"
+  },
+  "log": {
+    "broken_json": "Bozuk günlük kaytı tespit edildi ve onarıldı.",
+    "broken_file": "Bozuk dosya tespit edildi lütfen hata günlüğüne bakın."
   }
 }

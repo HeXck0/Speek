@@ -13,5 +13,18 @@
     "scan_failed": "Scan failed (see info log record in {{info_log}})",
     "error_occured": "An error occurred during scanning (see error log record in {{error_log}})",
     "scan_mode_over": "Scan is over {{format}}"
+  },
+  "domain": {
+    "domain_not_found": "{{file_path}}\nPath is not found.",
+    "invalid_domain_name": "{{domain_name}} Invalid domain name",
+    "valid_but_no_a": "{{domain_name}} Valid domain but no A record. (IPv4)",
+    "cname_not_resolved": "{{domain_name}} CNAME chain could not be resolved or IP address not found.",
+    "ip_resolved": "{{domain_name}} IP resolved successfully.",
+    "dns_timeout": "DNS query timed out",
+    "unexcepted_dns_error": "Unexpected error in DNS resolution"
+  },
+  "log": {
+    "broken_json": "Corrupt log detected and repaired.",
+    "broken_file": "Corrupted file detected, please check the error log."
   }
 }

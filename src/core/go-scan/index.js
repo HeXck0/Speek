@@ -1,5 +1,18 @@
-import { t } from '#src/utils/i18n.js'; 
+import loadDomainList from './domain/check-domain-file.js';
+import readDomainFile from './domain/read-domain-file.js';
+import checkDomainList from './domain/check-domain-list.js';
+import checkDnsAndScan from './domain/dns-scanning.js';
+import webReuqests from './domain/web-requests.js';
+import { t } from '#src/utils/i18n.js'
 
-export default function goScan() {
-  console.log("hello world") 
+const goScan = async (file, type) => {
+  console.log(t('scan_mode.scan_mode_started'));
+  const domListPath = await loadDomainList(file);
+  const readDomList = await readDomainFile(domListPath);
+  const checkDomList = checkDomainList(readDomList);
+  console.log(checkDomList.length);
+  const validDomList = await checkDnsAndScan(checkDomList);
+  await webReuqests(validDomList); 
 }
+
+export default goScan;

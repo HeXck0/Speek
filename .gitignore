@@ -3,10 +3,10 @@
 node_modules/
 
 # Environment 
-.env
+#.env
 
 # Log Files
-logs/
+#logs/
 
 # Data Output Files
 outputs/
