@@ -20,4 +20,4 @@ const readDomainFile = async (domListPath) => {
   return buffer;
 }
 
-export default readDomainFile; 
+export default readDomainFile;

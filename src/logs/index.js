@@ -1,18 +1,18 @@
 import { t } from '#src/utils/i18n.js';
-import { config } from '#src/config/index.js'; 
+import { config } from '#src/config/index.js';
 import { dirname, path } from '#src/utils/get-dirname.js';
 
 import fs from 'fs';
 import { hostname } from 'os';
 
-let logArr, logIndex = 0; 
+let logArr, logIndex = 0;
 const logsDir = path.join(dirname, '../../' + config.defaultLogPath);
 
-const infoLogsPath  = path.join(logsDir, 'info-log.jsonl');
-const errorLogsPath  = path.join(logsDir, 'error-log.jsonl'); 
+const infoLogsPath = path.join(logsDir, 'info-log.jsonl');
+const errorLogsPath = path.join(logsDir, 'error-log.jsonl');
 
-const getNewLog = async (logType='INFO', mode, processes) => {
-  
+const getNewLog = async (logType = 'INFO', mode, processes) => {
+
   if (logType !== 'INFO' && logType !== 'ERROR') {
     throwErr(logType);
   }
@@ -22,22 +22,22 @@ const getNewLog = async (logType='INFO', mode, processes) => {
     pathType: infoLogsPath,
     isThereFile: isThereFile(infoLogsPath)
   }
-  : resultFile = {
-    pathType: errorLogsPath,
-    isThereFile: isThereFile(errorLogsPath)
-  };
+    : resultFile = {
+      pathType: errorLogsPath,
+      isThereFile: isThereFile(errorLogsPath)
+    };
 
   logArr = {
     'ID': logIndex,
     'level': logType,
-    'strated_time': new Date().toISOString(),
+    'started_time': new Date().toISOString(),
     'hostname': hostname(),
     'mode': mode,
     'processes': processes
   };
- 
+
   if (!resultFile['isThereFile']) {
-    appendLogFile(resultFile['pathType'], logArr); 
+    appendLogFile(resultFile['pathType'], logArr);
   } else {
 
     let clearLogData = await checkLogFile(resultFile);
@@ -53,24 +53,24 @@ const appendLogFile = (path, data) => {
 }
 
 const checkLogFile = (resultFile) => {
-  
+
   return new Promise((res, rej) => {
-    
+
     const stream = fs.createReadStream(resultFile['pathType'], { encoding: 'utf-8' });
     let clearLogJson = [], buffer = '';
-    
+
     stream.on('data', chunk => {
       buffer += chunk
     });
 
     stream.on('end', () => {
-      
+
       let logJson = buffer.trim().split('\n');
-      
+
       for (let j = 0; j < logJson.length; j++) {
-        if (logJson[j].length > 0) { 
-          clearLogJson.push(logJson[j]); 
-        } 
+        if (logJson[j].length > 0) {
+          clearLogJson.push(logJson[j]);
+        }
       }
 
       if (clearLogJson.length >= config.defaultLogCount) {
@@ -108,7 +108,7 @@ const writeAllLog = (clearLogData, newLog, resultFile) => {
     newLog['ID'] = 0;
   }
   clearLogData.push(newLog);
-  const stream = fs.createWriteStream(resultFile['pathType'], {  
+  const stream = fs.createWriteStream(resultFile['pathType'], {
     flags: 'w',
     encoding: 'utf-8'
   });
